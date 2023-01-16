@@ -1,0 +1,24 @@
+Index: tuya_iot-1.0.0/CMakeLists.txt
+===================================================================
+--- tuya_iot-1.0.0.orig/CMakeLists.txt
++++ tuya_iot-1.0.0/CMakeLists.txt
+@@ -18,11 +18,6 @@ add_compile_options( -g )
+ # set(CMAKE_C_COMPILER arm-linux-androideabi-gcc)
+ # set(CMAKE_CXX_COMPILER arm-linux-androideabi-g++)
+ 
+-# Do not allow in-source build.
+-if( ${PROJECT_SOURCE_DIR} STREQUAL ${PROJECT_BINARY_DIR} )
+-    message( FATAL_ERROR "In-source build is not allowed. Please build in a separate directory, such as ${PROJECT_SOURCE_DIR}/build." )
+-endif()
+-
+ # Set global path variables.
+ get_filename_component(__root_dir "${CMAKE_CURRENT_LIST_DIR}" ABSOLUTE)
+ set(ROOT_DIR ${__root_dir} CACHE INTERNAL "C SDK source root.")
+@@ -72,6 +67,7 @@ add_subdirectory( src )
+ # # Build the demos.
+ add_subdirectory( examples )
+ 
++install(CODE "MESSAGE(\"Created empty install target.\")")
+ 
+ message(STATUS "------------------------------------------------------------" )
+ message(STATUS "[Link SDK] Configuration summary."                            )

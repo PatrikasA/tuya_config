@@ -6,7 +6,7 @@ PKG_RELEASE:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/tuya_sender
-	DEPENDS:=
+	DEPENDS:=+tuya_iot
 	CATEGORY:=Base system
 	TITLE:=tuya_sender
 endef
